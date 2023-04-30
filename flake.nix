@@ -101,6 +101,21 @@
           mozillavpn
         ];
       };
+
+      Tequatl = tyriaLib.mkNixosSystem {
+        hostName = "Tequatl";
+        hardwareModules = with nixos-hardware.nixosModules; [
+          lenovo-thinkpad-x1-9th-gen
+        ];
+        users = with users; [
+          erin
+        ];
+        profiles = with profiles; [
+          common
+          gnome
+          printing
+        ];
+      };
     };
 
     # TODO: Right now, home configurations are handled through the NixOS home-manager modules
