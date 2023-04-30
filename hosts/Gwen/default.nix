@@ -8,7 +8,5 @@
 
   networking.interfaces.eno1.useDHCP = true;
 
-  services.xserver.displayManager.autoLogin.user = "erin";
-
   system.stateVersion = "21.11";
 }
