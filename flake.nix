@@ -65,6 +65,17 @@
           tweag
         ];
       };
+
+      nixos = tyriaLib.mkUser {
+        userName = "nixos";
+        profiles = with user-profiles; [
+          common
+          git
+          helix
+          lazygit
+          ssh
+        ];
+      };
     };
   in {
     # Custom packages
@@ -114,6 +125,24 @@
           common
           gnome
           printing
+        ];
+      };
+
+      Aurene = tyriaLib.mkNixosSystem {
+        hostName = "Aurene";
+        hardwareModules = with nixos-hardware.nixosModules; [
+          common-cpu-intel
+          common-cpu-intel-kaby-lake
+          common-pc-laptop
+          common-pc-laptop-ssd
+        ];
+        users = with users; [
+          nixos
+        ];
+        profiles = with profiles; [
+          common
+          syncthing
+          gnome
         ];
       };
     };
