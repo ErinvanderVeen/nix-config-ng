@@ -7,4 +7,4 @@ The Next Generation Nix Configuration of Erin.
 ./user-profiles - User configuration profiles, a user combines multiple of these profiles with a user to create a single user
 
 ./pkgs - TODO: Custom packages
-./overlays - TODO: Custom overlays
+./overlays - Custom overlays, including a selection of packages that I always fetch from unstable
