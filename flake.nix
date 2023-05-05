@@ -75,6 +75,7 @@
           git
           lutris
           prismlauncher
+          syncthing
         ];
       };
 
