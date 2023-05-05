@@ -66,6 +66,18 @@
         ];
       };
 
+      maatje = tyriaLib.mkUser {
+        userName = "maatje";
+        profiles = with user-profiles; [
+          common
+          desktop-packages
+          discord
+          git
+          lutris
+          prismlauncher
+        ];
+      };
+
       nixos = tyriaLib.mkUser {
         userName = "nixos";
         profiles = with user-profiles; [
@@ -137,11 +149,14 @@
           common-pc-laptop-ssd
         ];
         users = with users; [
-          nixos
+          maatje
         ];
         profiles = with profiles; [
           common
           gnome
+          steam
+          mozillavpn
+          update
         ];
       };
     };
