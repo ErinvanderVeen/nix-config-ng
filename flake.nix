@@ -132,6 +132,27 @@
           printing
           steam
           mozillavpn
+          update
+        ];
+      };
+
+      Taimi = tyriaLib.mkNixosSystem {
+        hostName = "Taimi";
+        hardwareModules = with nixos-hardware.nixosModules; [
+          common-cpu-intel
+          common-gpu-nvidia-nonprime
+          common-pc
+          common-pc-ssd
+        ];
+        users = with users; [
+          maatje
+        ];
+        profiles = with profiles; [
+          common
+          gnome
+          steam
+          mozillavpn
+          update
         ];
       };
 
@@ -150,6 +171,7 @@
           common
           gnome
           printing
+          update
         ];
       };
 
@@ -165,6 +187,7 @@
           common
           gnome
           printing
+          update
         ];
       };
 
