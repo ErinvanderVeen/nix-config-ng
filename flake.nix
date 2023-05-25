@@ -57,7 +57,6 @@
           helix
           lazygit
           lutris
-          mangohud
           prismlauncher
           ssh
           syncthing
