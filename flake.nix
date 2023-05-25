@@ -118,6 +118,7 @@
       Gwen = tyriaLib.mkNixosSystem {
         hostName = "Gwen";
         hardwareModules = with nixos-hardware.nixosModules; [
+          common-cpu-intel
           common-gpu-amd
           common-pc
           common-pc-ssd
