@@ -159,8 +159,10 @@
     openssh = {
       enable = true;
       openFirewall = true;
-      permitRootLogin = "no";
-      passwordAuthentication = false;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
     };
 
     # Service that makes Out of Memory Killer more effective

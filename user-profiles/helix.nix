@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # clipboard
     wl-clipboard
@@ -48,15 +48,17 @@
         };
       };
     };
-    languages = [
-      {
-        name = "nix";
-        auto-format = true;
-        formatter = {
-          command = "${pkgs.alejandra}/bin/alejandra";
-          args = [ "-q" ];
-        };
-      }
-    ];
+    languages = {
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = "${pkgs.alejandra}/bin/alejandra";
+            args = ["-q"];
+          };
+        }
+      ];
+    };
   };
 }
