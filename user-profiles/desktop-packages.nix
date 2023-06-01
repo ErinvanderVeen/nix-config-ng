@@ -1,5 +1,5 @@
 # This module contains all packages without much/any configuration.
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
       # SPELLING
@@ -17,6 +17,7 @@
       baobab
       blackbox-terminal
       element-desktop
+      gnome-secrets
       keepassxc
       libreoffice-fresh
       pinta
