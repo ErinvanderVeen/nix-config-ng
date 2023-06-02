@@ -13,7 +13,5 @@
 
   networking.interfaces.eno1.useDHCP = true;
 
-  services.xserver.displayManager.autoLogin.user = "maatje";
-
   system.stateVersion = "22.05";
 }
