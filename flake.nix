@@ -136,6 +136,25 @@
         ];
       };
 
+      Mordremoth = tyriaLib.mkNixosSystem {
+        hostName = "Mordremoth";
+        hardwareModules = with nixos-hardware.nixosModules; [
+          common-cpu-intel
+          common-pc
+          common-pc-ssd
+          common-pc-hdd
+        ];
+        users = with users; [
+          erin
+        ];
+        profiles = with profiles; [
+          common
+          gnome
+          mozillavpn
+          update
+        ];
+      };
+
       Taimi = tyriaLib.mkNixosSystem {
         hostName = "Taimi";
         hardwareModules = with nixos-hardware.nixosModules; [
