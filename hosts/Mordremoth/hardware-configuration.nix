@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  pkgs,
-  modulesPath,
   ...
 }: {
   boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
@@ -18,6 +16,11 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/CDF9-C1F6";
     fsType = "vfat";
+  };
+
+  fileSystems."/var/nas-data" = {
+    device = "/dev/disk/by-label/nas-data";
+    fsType = "btrfs";
   };
 
   swapDevices = [];
