@@ -8,7 +8,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
-  services.xserver.displayManager.autoLogin.user = "erin";
+  services.xserver.displayManager.autoLogin.user = "media";
 
   # Data location for some services
   services.syncthing.dataDir = "/var/nas-data/syncthing";
@@ -16,6 +16,8 @@
     download-dir = "/var/nas-data/media/complete";
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
+
+  nix.settings.trusted-users = ["media"];
 
   system.stateVersion = "22.11";
 }
