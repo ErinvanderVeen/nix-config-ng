@@ -9,4 +9,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+jQ+XfIiLyP9y4GPoPCVqwgry+v6pi/nAma3z6oRqA erin@Tequatl"
     ];
   };
+
+  home-manager.users.nixos.home.stateVersion = "22.11";
 }

@@ -7,4 +7,6 @@
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "video"];
   };
+
+  home-manager.users.maatje.home.stateVersion = "22.11";
 }
