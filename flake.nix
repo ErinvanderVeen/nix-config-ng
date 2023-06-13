@@ -97,6 +97,14 @@
           ssh
         ];
       };
+
+      media = tyriaLib.mkUser {
+        userName = "media";
+        profiles = with user-profiles; [
+          common
+          desktop-packages
+        ];
+      };
     };
   in {
     # Custom packages
@@ -145,7 +153,8 @@
           common-pc-hdd
         ];
         users = with users; [
-          erin
+          nixos
+          media
         ];
         profiles = with profiles; [
           common
