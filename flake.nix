@@ -152,6 +152,11 @@
           gnome
           mozillavpn
           update
+          jellyfin
+          syncthing
+          syncthing-ports
+          transmission
+          media-group
         ];
       };
 
