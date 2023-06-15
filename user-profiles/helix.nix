@@ -21,7 +21,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "onedark";
       editor = {
         line-number = "relative";
         cursorline = true;
