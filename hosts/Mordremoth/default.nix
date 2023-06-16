@@ -3,6 +3,11 @@
     ./hardware-configuration.nix
   ];
 
+  # Enable hybrid soft/hardware encoding for VP8 and VP9.
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
