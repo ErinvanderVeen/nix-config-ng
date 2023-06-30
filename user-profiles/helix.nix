@@ -40,6 +40,9 @@
         indent-guides = {
           render = true;
         };
+        soft-wrap = {
+          enable = true;
+        };
       };
       keys = {
         normal = {
