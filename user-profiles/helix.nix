@@ -21,7 +21,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "base16_terminal";
+      theme = "adwaita-dark";
       editor = {
         line-number = "relative";
         cursorline = true;
