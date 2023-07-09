@@ -158,6 +158,7 @@
         ];
         profiles = with profiles; [
           common
+          corectrl
           gnome
           mozillavpn
           update
