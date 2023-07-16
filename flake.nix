@@ -49,6 +49,7 @@
         profiles = with user-profiles; [
           bat
           common
+          dconf
           desktop-packages
           direnv
           discord
@@ -69,6 +70,7 @@
         userName = "maatje";
         profiles = with user-profiles; [
           common
+          dconf
           desktop-packages
           discord
           git
@@ -82,6 +84,7 @@
         userName = "kyjan";
         profiles = with user-profiles; [
           common
+          dconf
           desktop-packages
           discord
         ];
@@ -102,6 +105,7 @@
         userName = "media";
         profiles = with user-profiles; [
           common
+          dconf
           desktop-packages
         ];
       };
