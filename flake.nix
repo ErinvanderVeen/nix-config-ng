@@ -226,6 +226,7 @@
           gnome
           printing
           update
+          mozillavpn
         ];
       };
 
