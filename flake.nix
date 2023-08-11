@@ -164,13 +164,14 @@
           common
           corectrl
           gnome
-          mozillavpn
-          update
           jellyfin
+          media-group
+          mozillavpn
+          samba
           syncthing
           syncthing-ports
           transmission
-          media-group
+          update
         ];
       };
 

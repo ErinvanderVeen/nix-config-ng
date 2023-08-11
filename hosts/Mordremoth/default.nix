@@ -21,6 +21,20 @@
     download-dir = "/var/nas-data/media/complete";
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
+  services.samba = {
+    shares = {
+      media = {
+        path = "/var/nas-data/media/";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "media";
+        "force group" = "media";
+      };
+    };
+  };
 
   nix.settings.trusted-users = ["media"];
 
