@@ -27,6 +27,7 @@
       inherit pkgs;
       specialArgs = {inherit inputs outputs;};
       modules = inputs.nixpkgs.lib.lists.flatten [
+        inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.home-manager
         {
           networking.hostName = hostName;
