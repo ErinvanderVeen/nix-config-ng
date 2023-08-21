@@ -141,6 +141,8 @@
     enableRedistributableFirmware = true;
   };
 
+  services.fwupd.enable = true;
+
   programs.fish = {
     enable = true;
     promptInit = ''
