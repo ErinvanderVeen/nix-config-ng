@@ -230,9 +230,8 @@
         profiles = with profiles; [
           common
           gnome
-          printing
           update
-          mozillavpn
+          tweag
         ];
       };
 
