@@ -16,6 +16,7 @@
 
       baobab
       blackbox-terminal
+      celluloid
       element-desktop
       gnome-secrets
       keepassxc
