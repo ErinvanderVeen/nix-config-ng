@@ -9,9 +9,8 @@
       (final.unstable)
       discord
       element-desktop
+      helix
       ;
-
-    helix = inputs.helix.packages.${prev.system}.default;
   };
 
   # Allows pkgs.unstable.X
