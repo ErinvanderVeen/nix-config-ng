@@ -105,8 +105,6 @@
         userName = "media";
         profiles = with user-profiles; [
           common
-          dconf
-          desktop-packages
         ];
       };
     };
@@ -163,7 +161,6 @@
         profiles = with profiles; [
           common
           corectrl
-          gnome
           jellyfin
           media-group
           mozillavpn
