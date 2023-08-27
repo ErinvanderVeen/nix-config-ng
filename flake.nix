@@ -9,6 +9,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
@@ -163,6 +168,7 @@
           corectrl
           jellyfin
           media-group
+          minecraft
           mozillavpn
           samba
           syncthing

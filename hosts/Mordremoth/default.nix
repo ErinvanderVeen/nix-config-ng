@@ -21,6 +21,7 @@
     download-dir = "/var/nas-data/media/complete";
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
+  services.minecraft-server.dataDir = "/var/nas-data/minecraft";
   services.samba = {
     shares = {
       media = {
@@ -32,6 +33,16 @@
         "directory mask" = "0755";
         "force user" = "media";
         "force group" = "media";
+      };
+      minecraft = {
+        path = "/var/nas-data/minecraft/";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "minecraft";
+        "force group" = "minecraft";
       };
     };
   };

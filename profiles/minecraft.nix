@@ -1,8 +1,13 @@
-{ pkgs, ... }:
-{
-  networking.firewall = {
-    allowedTCPPortRanges = [
-      { from = 25565; to = 25565; }
-    ];
+{pkgs, ...}: {
+  services.minecraft-server = {
+    jvmOpts = "-Xmx6G -Xms6G";
+    enable = true;
+    eula = true;
+    declarative = false;
+    package = pkgs.unstable.papermc;
+    serverProperties = {
+      motd = "Minecraft's Mighty Four";
+    };
+    openFirewall = true;
   };
 }
