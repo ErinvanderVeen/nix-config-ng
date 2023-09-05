@@ -148,6 +148,9 @@
     promptInit = ''
       ${pkgs.starship}/bin/starship init fish | source
     '';
+    shellInit = ''
+      set fish_greeting
+    '';
   };
 
   time.timeZone = lib.mkDefault "Europe/Stockholm";
