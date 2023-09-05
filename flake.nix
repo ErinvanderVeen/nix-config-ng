@@ -146,7 +146,7 @@
           gnome
           printing
           steam
-          mozillavpn
+          protonvpn
           update
         ];
       };
@@ -169,7 +169,7 @@
           jellyfin
           media-group
           minecraft
-          mozillavpn
+          protonvpn
           samba
           syncthing
           syncthing-ports
@@ -193,7 +193,7 @@
           common
           gnome
           steam
-          mozillavpn
+          protonvpn
           update
         ];
       };
@@ -248,7 +248,7 @@
           common
           gnome
           steam
-          mozillavpn
+          protonvpn
           update
         ];
       };
