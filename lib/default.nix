@@ -19,7 +19,6 @@
         overlays.additions
         overlays.modifications
         overlays.unstable-packages
-        inputs.nix-minecraft.overlay
       ];
     };
   in
