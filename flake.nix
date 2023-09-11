@@ -120,9 +120,9 @@
     # Exporting overlays for use whenever
     inherit overlays;
 
-    # Custom modules
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
+    # Custom modules TODO (maybe)
+    # nixosModules = nixos-modules;
+    # homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
       Gwen = tyriaLib.mkNixosSystem {
@@ -166,6 +166,7 @@
           media-group
           minecraft
           protonvpn
+          protonvpn-headless
           samba
           syncthing
           syncthing-ports

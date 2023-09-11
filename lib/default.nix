@@ -21,12 +21,15 @@
         overlays.unstable-packages
       ];
     };
+
+    nixos-modules = map (a: ../modules + "/${a}") (builtins.attrNames (builtins.readDir ../modules));
   in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       inherit pkgs;
       specialArgs = {inherit inputs outputs;};
       modules = inputs.nixpkgs.lib.lists.flatten [
+        nixos-modules
         inputs.home-manager.nixosModules.home-manager
         {
           networking.hostName = hostName;
