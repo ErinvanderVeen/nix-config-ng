@@ -7,6 +7,7 @@
     # These packages, we want to get from unstable
     inherit
       (final.unstable)
+      blackbox-terminal
       discord
       element-desktop
       helix
