@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.minecraft-server = {
     jvmOpts = "-Xmx6G -Xms6G";
     enable = true;
@@ -10,4 +14,7 @@
     };
     openFirewall = true;
   };
+
+  # DO not automatically start the server
+  systemd.services.minecraft-server.wantedBy = lib.mkForce [];
 }
