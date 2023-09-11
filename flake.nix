@@ -141,6 +141,7 @@
           gnome
           printing
           steam
+          tweag
           protonvpn
           update
         ];
