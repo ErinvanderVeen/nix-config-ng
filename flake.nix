@@ -228,6 +228,7 @@
           gnome
           update
           tweag
+          protonvpn
         ];
       };
 
