@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services = {
     xserver = {
       enable = true;
@@ -20,11 +20,12 @@
   environment.systemPackages = with pkgs.gnomeExtensions; [
     appindicator # Sys tray
     blur-my-shell # Blur when opening menu
-    gsconnect # Connect to phone
-    syncthing-indicator
-    vitals # Computer status
-    task-widget # Tasks
     dash-to-dock # Pin dock
+    gsconnect # Connect to phone
+    just-perfection
+    syncthing-indicator
+    task-widget # Tasks
+    vitals # Computer status
   ];
 
   # gsconnect required ports
