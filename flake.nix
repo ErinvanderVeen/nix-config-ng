@@ -161,6 +161,7 @@
           media
         ];
         profiles = with profiles; [
+          adguardhome
           common
           corectrl
           jellyfin
