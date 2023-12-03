@@ -22,7 +22,7 @@
       curl
       direnv
       dnsutils
-      exa
+      eza
       fd
       fzf
       git
@@ -69,13 +69,8 @@
       utl = "systemctl --user";
       jtl = "journalctl";
 
-      # NOTE: exa aliases are maintained by the exa home-manager module
+      # NOTE: eza aliases are maintained by the eza home-manager module
     };
-  };
-
-  nixpkgs = {
-    # enable unfree packages
-    config.allowUnfree = true;
   };
 
   nix = {
