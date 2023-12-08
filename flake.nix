@@ -47,7 +47,6 @@
       erin = tyriaLib.mkUser {
         userName = "erin";
         profiles = with user-profiles; [
-          atuin
           bat
           common
           dconf
