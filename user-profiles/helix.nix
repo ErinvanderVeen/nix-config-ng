@@ -56,8 +56,7 @@
           name = "nix";
           auto-format = true;
           formatter = {
-            command = "${pkgs.alejandra}/bin/alejandra";
-            args = ["-q"];
+            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           };
         }
       ];
