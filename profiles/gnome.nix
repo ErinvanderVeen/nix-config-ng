@@ -26,6 +26,7 @@
     syncthing-indicator
     task-widget # Tasks
     vitals # Computer status
+    paperwm # Scrolling WM
   ];
 
   # gsconnect required ports
