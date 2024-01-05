@@ -1,16 +1,16 @@
 # TODO: Split this file up like the cachix.nix file
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
-  imports = [./cachix.nix];
+  imports = [ ./cachix.nix ];
 
   environment = {
     variables = {
       # Set a decent default editor
       EDITOR = "hx";
+      NIX_AUTO_RUN = "1";
     };
 
     # Selection of sysadmin tools that can come in handy
@@ -41,36 +41,38 @@
       whois
     ];
 
-    shellAliases = let
-      ifSudo = lib.mkIf (config.security.sudo.enable);
-    in {
-      grep = "rg";
+    shellAliases =
+      let
+        ifSudo = lib.mkIf (config.security.sudo.enable);
+      in
+      {
+        grep = "rg";
 
-      # internet ip
-      # TODO: explain this hard-coded IP address
-      myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
+        # internet ip
+        # TODO: explain this hard-coded IP address
+        myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
 
-      # nix
-      n = "nix";
-      nf = "n flake";
-      nepl = "n repl '<nixpkgs>'";
-      top = "btm";
-      htop = "btm";
+        # nix
+        n = "nix";
+        nf = "n flake";
+        nepl = "n repl '<nixpkgs>'";
+        top = "btm";
+        htop = "btm";
 
-      # sudo
-      s = ifSudo "sudo -E ";
+        # sudo
+        s = ifSudo "sudo -E ";
 
-      # cat
-      cat = "bat";
+        # cat
+        cat = "bat";
 
-      # systemd
-      ctl = "systemctl";
-      stl = ifSudo "s systemctl";
-      utl = "systemctl --user";
-      jtl = "journalctl";
+        # systemd
+        ctl = "systemctl";
+        stl = ifSudo "s systemctl";
+        utl = "systemctl --user";
+        jtl = "journalctl";
 
-      # NOTE: eza aliases are maintained by the eza home-manager module
-    };
+        # NOTE: eza aliases are maintained by the eza home-manager module
+      };
   };
 
   nix = {
@@ -83,11 +85,11 @@
     optimise.automatic = true;
 
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
 
       # Give root user and wheel group special Nix privileges.
-      trusted-users = ["root" "@wheel"];
-      allowed-users = ["root" "@wheel"];
+      trusted-users = [ "root" "@wheel" ];
+      allowed-users = [ "root" "@wheel" ];
 
       # Improve nix store disk usage
       auto-optimise-store = true;
