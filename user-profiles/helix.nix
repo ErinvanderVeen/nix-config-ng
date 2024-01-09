@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # clipboard
     wl-clipboard
@@ -50,7 +50,9 @@
         };
       };
     };
+
     languages = {
+      language-server.rust-analyzer.config.check.command = "clippy";
       language = [
         {
           name = "nix";
