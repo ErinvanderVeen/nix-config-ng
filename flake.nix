@@ -172,6 +172,7 @@
             adguardhome
             common
             corectrl
+            home-assistant
             jellyfin
             media-group
             minecraft
