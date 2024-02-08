@@ -169,7 +169,6 @@
             media
           ];
           profiles = with profiles; [
-            adguardhome
             common
             corectrl
             home-assistant
