@@ -61,8 +61,16 @@
           command = "${pkgs.zk}/bin/zk";
           args = [ "lsp" ];
         };
+        gpt = {
+          command = "${pkgs.unstable.helix-gpt}/bin/helix-gpt";
+          args = [ "--handler" "copilot" ];
+        };
       };
       language = [
+        {
+          name = "rust";
+          language-servers = [ "rust-analyzer" "gpt" ];
+        }
         {
           name = "nix";
           auto-format = true;
