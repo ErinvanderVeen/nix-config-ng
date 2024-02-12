@@ -10,6 +10,8 @@
 
       # Tapo smart plug
       "tplink"
+      # Otherwise I get an exception
+      "cast"
     ];
     config = {
       # Includes dependencies for a basic setup
