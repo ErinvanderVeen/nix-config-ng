@@ -144,6 +144,7 @@
           ];
           users = with users; [
             erin
+            maatje
           ];
           profiles = with profiles; [
             common
@@ -194,6 +195,7 @@
             common-pc-ssd
           ];
           users = with users; [
+            erin
             maatje
           ];
           profiles = with profiles; [
