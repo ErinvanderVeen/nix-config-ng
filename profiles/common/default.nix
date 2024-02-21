@@ -177,6 +177,8 @@
       publish = {
         enable = true;
         userServices = true;
+        workstation = true;
+        addresses = true;
       };
     };
   };
