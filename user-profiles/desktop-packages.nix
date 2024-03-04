@@ -1,5 +1,5 @@
 # This module contains all packages without much/any configuration.
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home = {
     packages = with pkgs; [
       # SPELLING
@@ -28,6 +28,10 @@
       transmission-gtk
     ];
     keyboard = null;
+
+    sessionVariables = {
+      TERM = "blackbox";
+    };
   };
 
   programs.firefox = {
