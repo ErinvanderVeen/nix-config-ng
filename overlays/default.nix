@@ -13,6 +13,14 @@
       helix
       protonvpn-gui
       ;
+
+    # helix-gpt's timeout is toooo little, increase it
+    helix-gpt = final.unstable.helix-gpt.overrideAttrs (finalAttrs: previousAttrs: {
+      prePatch = ''
+        substituteInPlace src/models/api.ts \
+            --replace 'timeout: number = 10000' 'timeout: number = 30000'
+      '';
+    });
   };
 
   # Allows pkgs.unstable.X

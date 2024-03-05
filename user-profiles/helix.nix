@@ -62,7 +62,7 @@
           args = [ "lsp" ];
         };
         gpt = {
-          command = "${pkgs.unstable.helix-gpt}/bin/helix-gpt";
+          command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [ "--handler" "copilot" ];
         };
       };
