@@ -22,6 +22,7 @@
       keepassxc
       libreoffice-fresh
       pinta
+      planify # Todoist GUI
       signal-desktop
       spotify
       translate-shell
