@@ -4,5 +4,6 @@
     krita
     scribus
     upscayl
+    r2modman # Modmanager for games, notably outward
   ];
 }
