@@ -72,6 +72,10 @@
           language-servers = [ "rust-analyzer" "gpt" ];
         }
         {
+          name = "html";
+          language-servers = [ "vscode-html-language-server" "gpt" ];
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter = {
