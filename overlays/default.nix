@@ -12,6 +12,7 @@
       element-desktop
       helix
       protonvpn-gui
+      signal-desktop
       ;
 
     # helix-gpt's timeout is toooo little, increase it
