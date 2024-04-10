@@ -59,13 +59,10 @@
             dconf
             desktop-packages
             direnv
-            discord
             git
             github
             helix
             lazygit
-            lutris
-            prismlauncher
             ssh
             syncthing
             terminal-packages
