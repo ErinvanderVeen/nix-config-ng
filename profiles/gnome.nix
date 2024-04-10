@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services = {
     xserver = {
       enable = true;
@@ -27,6 +27,7 @@
     task-widget # Tasks
     vitals # Computer status
     paperwm # Scrolling WM
+    night-theme-switcher # Execute command on theme switch
   ];
 
   # gsconnect required ports
