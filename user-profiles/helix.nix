@@ -7,7 +7,6 @@
     # Language servers
     ## Nix
     nil
-    zk
 
     ## Rust
     cargo
@@ -57,10 +56,6 @@
         rust-analyzer = {
           config.check.command = "clippy";
         };
-        zk = {
-          command = "${pkgs.zk}/bin/zk";
-          args = [ "lsp" ];
-        };
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [ "--handler" "copilot" ];
@@ -81,11 +76,6 @@
           formatter = {
             command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           };
-        }
-        {
-          name = "markdown";
-          roots = [ ".zk" ];
-          language-servers = [ "zk" ];
         }
       ];
     };
