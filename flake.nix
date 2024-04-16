@@ -7,10 +7,27 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    hyprscroller = {
+      flake = false;
+      url = "github:dawsers/hyprscroller?rev=009b1f76eb536ea03eba7a4b131e326281df1f32";
+    };
+
+    asztal = {
+      url = "github:Aylur/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
+      flake = false;
+    };
   };
 
   outputs =
@@ -63,6 +80,7 @@
             github
             helix
             lazygit
+            niri
             ssh
             syncthing
             terminal-packages
@@ -120,7 +138,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        import ./pkgs { inherit pkgs; }
+        import ./pkgs { inherit pkgs inputs; }
       );
 
       # Exporting overlays for use whenever
@@ -204,25 +222,6 @@
           ];
         };
 
-        Junkrat = tyriaLib.mkNixosSystem {
-          hostName = "Junkrat";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            common-cpu-intel
-            common-cpu-intel-kaby-lake
-            common-pc-laptop
-            common-pc-laptop-ssd
-          ];
-          users = with users; [
-            kyjan
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            printing
-            update
-          ];
-        };
-
         Tequatl = tyriaLib.mkNixosSystem {
           hostName = "Tequatl";
           hardwareModules = with nixos-hardware.nixosModules; [
@@ -234,7 +233,8 @@
           profiles = with profiles; [
             common
             gnome
-            update
+            hyprland
+            # update
             tweag
             protonvpn
           ];

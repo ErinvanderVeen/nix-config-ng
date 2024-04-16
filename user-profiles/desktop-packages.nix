@@ -1,5 +1,5 @@
 # This module contains all packages without much/any configuration.
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home = {
     packages = with pkgs; [
       # SPELLING
@@ -36,5 +36,24 @@
 
   programs.firefox = {
     enable = true;
+    profiles.default = {
+      name = "Default";
+      settings = {
+        "browser.tabs.loadInBackground" = true;
+        "widget.gtk.rounded-bottom-corners.enabled" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
+        "gnomeTheme.hideSingleTab" = true;
+        "gnomeTheme.bookmarksToolbarUnderTabs" = true;
+        "gnomeTheme.normalWidthTabs" = false;
+        "gnomeTheme.tabsAsHeaderbar" = false;
+      };
+      userChrome = ''
+        @import "${inputs.firefox-gnome-theme}/userChrome.css";
+      '';
+      userContent = ''
+        @import "${inputs.firefox-gnome-theme}/userContent.css";
+      '';
+    };
   };
 }
