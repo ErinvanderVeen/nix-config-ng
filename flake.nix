@@ -7,10 +7,20 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs-stable.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs =
@@ -63,6 +73,7 @@
             github
             helix
             lazygit
+            niri
             ssh
             syncthing
             terminal-packages
@@ -204,25 +215,6 @@
           ];
         };
 
-        Junkrat = tyriaLib.mkNixosSystem {
-          hostName = "Junkrat";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            common-cpu-intel
-            common-cpu-intel-kaby-lake
-            common-pc-laptop
-            common-pc-laptop-ssd
-          ];
-          users = with users; [
-            kyjan
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            printing
-            update
-          ];
-        };
-
         Tequatl = tyriaLib.mkNixosSystem {
           hostName = "Tequatl";
           hardwareModules = with nixos-hardware.nixosModules; [
@@ -234,7 +226,8 @@
           profiles = with profiles; [
             common
             gnome
-            update
+            niri
+            # update
             tweag
             protonvpn
           ];
