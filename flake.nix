@@ -247,6 +247,26 @@
           ];
         };
 
+        Trahearne = tyriaLib.mkNixosSystem {
+          hostName = "Trahearne";
+          hardwareModules = with nixos-hardware.nixosModules; [
+            common-cpu-intel
+            common-gpu-amd
+            common-pc
+            common-pc-ssd
+          ];
+          users = with users; [
+            erin
+          ];
+          profiles = with profiles; [
+            common
+            gnome
+            update
+            tweag
+            protonvpn
+          ];
+        };
+
         Aurene = tyriaLib.mkNixosSystem {
           hostName = "Aurene";
           hardwareModules = with nixos-hardware.nixosModules; [
