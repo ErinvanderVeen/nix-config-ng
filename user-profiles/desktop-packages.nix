@@ -1,5 +1,9 @@
 # This module contains all packages without much/any configuration.
 { pkgs, ... }: {
+  imports = [
+    ./firefox.nix
+  ];
+
   home = {
     packages = with pkgs; [
       # SPELLING
