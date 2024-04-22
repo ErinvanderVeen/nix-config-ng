@@ -27,7 +27,10 @@
       libreoffice-fresh
       pinta
       planify # Todoist GUI
+
       signal-desktop
+      flare-signal
+
       translate-shell
       transmission-gtk
     ];

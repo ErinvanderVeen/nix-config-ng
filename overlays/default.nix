@@ -13,6 +13,7 @@
       helix
       protonvpn-gui
       signal-desktop
+      flare-signal
       ;
 
     # helix-gpt's timeout is toooo little, increase it
