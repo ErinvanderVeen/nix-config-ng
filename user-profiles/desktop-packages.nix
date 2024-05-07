@@ -35,10 +35,14 @@
       transmission-gtk
     ];
     keyboard = null;
+  };
 
-    sessionVariables = {
-      TERM = "blackbox";
-    };
+  systemd.user.sessionVariables = {
+    TERM = "blackbox";
+  };
+
+  xsession = {
+    enable = true;
   };
 
   programs.firefox = {

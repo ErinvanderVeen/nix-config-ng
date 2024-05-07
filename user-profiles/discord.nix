@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home = {
-    # TODO: Re-introduce ifSupportedPkg
-    # packages = pkgs.lib.ifSupportedPkg pkgs.discord;
-    packages = [ pkgs.discord ];
+    # Custom client with support for screen sharing on Linux
+    packages = [ pkgs.vesktop ];
   };
 }
