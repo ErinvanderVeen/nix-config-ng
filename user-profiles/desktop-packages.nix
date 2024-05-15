@@ -27,6 +27,7 @@
       libreoffice-fresh
       pinta
       planify # Todoist GUI
+      protonmail-desktop
 
       signal-desktop
       flare-signal
