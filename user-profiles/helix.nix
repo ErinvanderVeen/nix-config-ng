@@ -58,7 +58,17 @@
         };
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
-          args = [ "--handler" "copilot" ];
+          args = [
+            "--handler"
+            "copilot"
+
+            "--fetchTimeout"
+            "60000"
+            "--actionTimeout"
+            "60000"
+            "--completionTimeout"
+            "60000"
+          ];
         };
       };
       language = [
