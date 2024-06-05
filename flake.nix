@@ -29,30 +29,25 @@
     } @ inputs:
     let
       inherit (self) outputs;
-      # I purposefully do not support darwin
+      # I purposefully do not support darwin or 32 bit
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
-        "i686-linux"
         "x86_64-linux"
       ];
 
-      # TODO: Abstract
-      profiles = builtins.listToAttrs (map
+      createProfiles = dir: builtins.listToAttrs (map
         (a: {
           name = nixpkgs.lib.strings.removeSuffix ".nix" a;
-          value = ./profiles + "/${a}";
+          value = dir + "/${a}";
         })
-        (builtins.attrNames (builtins.readDir ./profiles)));
+        (builtins.attrNames (builtins.readDir dir)));
 
-      # TODO: Abstract
-      user-profiles = builtins.listToAttrs (map
-        (a: {
-          name = nixpkgs.lib.strings.removeSuffix ".nix" a;
-          value = ./user-profiles + "/${a}";
-        })
-        (builtins.attrNames (builtins.readDir ./user-profiles)));
+      profiles = createProfiles ./profiles;
+      user-profiles = createProfiles ./user-profiles;
 
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays {
+        inherit inputs;
+      };
 
       # Custom library that I use to create users and nixosSystems
       tyriaLib = import ./lib { inherit inputs overlays outputs; };
