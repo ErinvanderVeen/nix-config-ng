@@ -19,7 +19,6 @@
     # Selection of sysadmin tools that can come in handy
     systemPackages = with pkgs; [
       bat
-      binutils
       bottom
       coreutils
       curl
@@ -28,39 +27,25 @@
       fzf
       git
       helix
-      iputils
       jq
-      moreutils
-      nix-index
-      pciutils
       ripgrep
       skim
       tealdeer
-      trash-cli
-      usbutils
       utillinux
-      whois
     ];
 
-    shellAliases =
-      let
-        ifSudo = lib.mkIf (config.security.sudo.enable);
-      in
-      {
-        grep = "rg";
+    shellAliases = {
+      grep = "rg";
 
-        # nix
-        n = "nix";
-        nepl = "n repl '<nixpkgs>'";
-        top = "btm";
-        htop = "btm";
+      # nix
+      n = "nix";
+      nepl = "n repl nixpkgs";
+      top = "btm";
+      htop = "btm";
 
-        # sudo
-        s = ifSudo "sudo -E ";
-
-        # cat
-        cat = "bat";
-      };
+      # cat
+      cat = "bat";
+    };
   };
 
   nix = {
@@ -73,11 +58,10 @@
     optimise.automatic = true;
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
 
       # Give root user and wheel group special Nix privileges.
       trusted-users = [ "root" "@wheel" ];
-      allowed-users = [ "root" "@wheel" ];
 
       # Improve nix store disk usage
       auto-optimise-store = true;
