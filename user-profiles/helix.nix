@@ -86,6 +86,7 @@
           formatter = {
             command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           };
+          language-servers = [ "nil" "gpt" ];
         }
       ];
     };
