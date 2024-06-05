@@ -4,7 +4,10 @@
 , pkgs
 , ...
 }: {
-  imports = [ ./cachix.nix ];
+  imports = [
+    ./cachix.nix
+    ./direnv.nix
+  ];
 
   environment = {
     variables = {
@@ -20,8 +23,6 @@
       bottom
       coreutils
       curl
-      direnv
-      dnsutils
       eza
       fd
       fzf
@@ -48,13 +49,8 @@
       {
         grep = "rg";
 
-        # internet ip
-        # TODO: explain this hard-coded IP address
-        myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
-
         # nix
         n = "nix";
-        nf = "n flake";
         nepl = "n repl '<nixpkgs>'";
         top = "btm";
         htop = "btm";
@@ -64,14 +60,6 @@
 
         # cat
         cat = "bat";
-
-        # systemd
-        ctl = "systemctl";
-        stl = ifSudo "s systemctl";
-        utl = "systemctl --user";
-        jtl = "journalctl";
-
-        # NOTE: eza aliases are maintained by the eza home-manager module
       };
   };
 
