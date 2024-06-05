@@ -172,7 +172,7 @@
 
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       ipv6 = false;
       publish = {
         enable = true;
