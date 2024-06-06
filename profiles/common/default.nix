@@ -11,6 +11,8 @@
     ./locale.nix
   ];
 
+  hardware.keyboard.zsa.enable = true;
+
   environment = {
     variables = {
       # Set a decent default editor
