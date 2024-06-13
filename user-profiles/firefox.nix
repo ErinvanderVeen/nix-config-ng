@@ -20,6 +20,7 @@
       '';
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ecosia
+        privacy-badger
         proton-pass
         simple-translate
         sponsorblock
