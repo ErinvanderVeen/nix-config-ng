@@ -4,30 +4,28 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
-
-  boot.initrd.luks.devices = {
-    crypted = {
-      device = "/dev/disk/by-uuid/1d401d60-3ee7-4a68-ae46-d47d67dc7726";
-      preLVM = true;
-      allowDiscards = true;
-    };
-  };
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/82d97167-d0a8-4c7c-b07b-7a113800b72c";
-      fsType = "ext4";
+      device = "/dev/disk/by-uuid/8de74132-361a-4fd8-a94d-f9d6417f0560";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
+
+  boot.initrd.luks.devices."luks-c7af8178-1cf8-4f71-86e7-f924752451c2".device = "/dev/disk/by-uuid/c7af8178-1cf8-4f71-86e7-f924752451c2";
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/0D30-8511";
+      device = "/dev/disk/by-uuid/B44C-AA6D";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/e28a9ae4-933a-447d-9d0f-33aee243bb3d"; }];
+  swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
