@@ -70,6 +70,9 @@
             "60000"
           ];
         };
+        typos = {
+          command = "${pkgs.typos-lsp}/bin/typos-lsp";
+        };
       };
       language = [
         {
@@ -88,7 +91,17 @@
           };
           language-servers = [ "nil" "gpt" ];
         }
+        {
+          name = "typst";
+          auto-format = true;
+          formatter = {
+            command = "${pkgs.typstfmt}/bin/typstfmt";
+            args = [ "--output" "-" ];
+          };
+          language-servers = [ "typst-lsp" "typos" "gpt" ];
+        }
       ];
     };
   };
 }
+
