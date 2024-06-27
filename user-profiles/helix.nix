@@ -59,8 +59,8 @@
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [
-            "--handler"
-            "copilot"
+            # "--handler"
+            # "copilot"
 
             "--fetchTimeout"
             "60000"
