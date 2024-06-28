@@ -257,9 +257,10 @@
           profiles = with profiles; [
             common
             gnome
-            update
-            tweag
+            ollama
             protonvpn
+            tweag
+            update
           ];
         };
 
