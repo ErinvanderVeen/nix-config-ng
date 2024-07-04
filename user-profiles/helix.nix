@@ -59,15 +59,17 @@
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [
-            # "--handler"
-            # "copilot"
+            "--handler"
+            "ollama"
 
-            "--fetchTimeout"
-            "60000"
-            "--actionTimeout"
-            "60000"
-            "--completionTimeout"
-            "60000"
+            "--ollamaModel"
+            "codellama:7b"
+
+            "--ollamaEndpoint"
+            "http:///Trahearne.local:11434"
+
+            "--triggerCharacters"
+            ""
           ];
         };
         typos = {
@@ -78,6 +80,10 @@
         {
           name = "rust";
           language-servers = [ "rust-analyzer" "gpt" ];
+        }
+        {
+          name = "go";
+          language-servers = [ "gopls" "gpt" ];
         }
         {
           name = "html";
