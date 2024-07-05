@@ -19,7 +19,6 @@
         overlays = [
           overlays.additions
           overlays.modifications
-          overlays.unstable-packages
           inputs.nur.overlay
         ];
       };
