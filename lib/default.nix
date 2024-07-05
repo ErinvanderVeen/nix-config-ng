@@ -10,11 +10,12 @@
     , profiles ? [ ]
     , hostName ? "NixOS"
     , system ? "x86_64-linux"
+    , rocmSupport ? false
     ,
     }:
     let
       pkgs = import inputs.nixpkgs {
-        inherit system;
+        inherit system rocmSupport;
         config.allowUnfree = true;
         overlays = [
           overlays.additions

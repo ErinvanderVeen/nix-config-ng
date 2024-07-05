@@ -244,6 +244,7 @@
 
         Trahearne = tyriaLib.mkNixosSystem {
           hostName = "Trahearne";
+          rocmSupport = true;
           hardwareModules = with nixos-hardware.nixosModules; [
             common-cpu-intel
             common-gpu-amd

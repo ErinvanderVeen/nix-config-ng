@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ ... }: {
   services.transmission = {
     enable = true;
     group = "media";
