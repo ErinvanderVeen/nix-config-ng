@@ -8,6 +8,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    inter
+  ];
+
   environment.gnome.excludePackages =
     (with pkgs; [
       gnome-console
