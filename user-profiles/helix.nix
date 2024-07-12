@@ -63,13 +63,13 @@
             "ollama"
 
             "--ollamaModel"
-            "codellama:7b"
+            "codellama"
 
             "--ollamaEndpoint"
             "http:///Trahearne.local:11434"
 
             "--triggerCharacters"
-            ""
+            "{"
           ];
         };
         typos = {
@@ -77,14 +77,14 @@
         };
       };
       language = [
-        {
-          name = "rust";
-          language-servers = [ "rust-analyzer" "gpt" ];
-        }
-        {
-          name = "go";
-          language-servers = [ "gopls" "gpt" ];
-        }
+        # {
+        #   name = "rust";
+        #   language-servers = [ "rust-analyzer" "gpt" ];
+        # }
+        # {
+        #   name = "go";
+        #   language-servers = [ "gopls" "gpt" ];
+        # }
         {
           name = "html";
           language-servers = [ "vscode-html-language-server" "gpt" ];
