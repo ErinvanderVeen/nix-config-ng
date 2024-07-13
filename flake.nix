@@ -258,6 +258,7 @@
             common
             gnome
             ollama
+            printing
             protonvpn
             tweag
             update
