@@ -238,6 +238,7 @@
             gnome
             update
             tweag
+            printing
             protonvpn
           ];
         };
