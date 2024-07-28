@@ -32,8 +32,8 @@
     vitals # Computer status
     paperwm # Scrolling WM
     night-theme-switcher # Execute command on theme switch
-  ] ++ (with pkgs.gnome; [
-    pomodoro
+  ] ++ (with pkgs; [
+    gnome-pomodoro
   ]);
 
   # gsconnect required ports

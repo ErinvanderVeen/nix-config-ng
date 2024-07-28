@@ -28,12 +28,12 @@
       pinta
       planify # Todoist GUI
       protonmail-desktop
+      standardnotes
 
       signal-desktop
       flare-signal
 
-      translate-shell
-      transmission-gtk
+      transmission_4-gtk
     ];
     keyboard = null;
   };
