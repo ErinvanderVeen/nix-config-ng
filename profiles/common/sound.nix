@@ -1,6 +1,4 @@
 {
-  # Sound
-  sound.enable = true;
   # rtkit allows pipewire to get real time scheduling on demand (recommended by nixos wiki)
   security.rtkit.enable = true;
   services.pipewire = {

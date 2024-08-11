@@ -65,6 +65,7 @@
             github
             helix
             lazygit
+            lutris
             ssh
             syncthing
             terminal-packages

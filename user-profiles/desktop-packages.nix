@@ -22,7 +22,6 @@
       blackbox-terminal
       celluloid
       element-desktop
-      gnome-secrets
       keepassxc
       libreoffice-fresh
       pinta
