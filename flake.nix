@@ -73,30 +73,6 @@
           ];
         };
 
-        maatje = tyriaLib.mkUser {
-          userName = "maatje";
-          profiles = with user-profiles; [
-            common
-            dconf
-            desktop-packages
-            discord
-            git
-            lutris
-            prismlauncher
-            syncthing
-          ];
-        };
-
-        kyjan = tyriaLib.mkUser {
-          userName = "kyjan";
-          profiles = with user-profiles; [
-            common
-            dconf
-            desktop-packages
-            discord
-          ];
-        };
-
         nixos = tyriaLib.mkUser {
           userName = "nixos";
           profiles = with user-profiles; [
@@ -144,7 +120,6 @@
           ];
           users = with users; [
             erin
-            maatje
           ];
           profiles = with profiles; [
             common
@@ -186,46 +161,6 @@
           ];
         };
 
-        Taimi = tyriaLib.mkNixosSystem {
-          hostName = "Taimi";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            common-cpu-intel
-            common-gpu-nvidia-nonprime
-            common-pc
-            common-pc-ssd
-          ];
-          users = with users; [
-            erin
-            maatje
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            steam
-            protonvpn
-            update
-          ];
-        };
-
-        Junkrat = tyriaLib.mkNixosSystem {
-          hostName = "Junkrat";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            common-cpu-intel
-            common-cpu-intel-kaby-lake
-            common-pc-laptop
-            common-pc-laptop-ssd
-          ];
-          users = with users; [
-            kyjan
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            printing
-            update
-          ];
-        };
-
         Tequatl = tyriaLib.mkNixosSystem {
           hostName = "Tequatl";
           hardwareModules = with nixos-hardware.nixosModules; [
@@ -263,26 +198,6 @@
             printing
             protonvpn
             tweag
-            update
-          ];
-        };
-
-        Aurene = tyriaLib.mkNixosSystem {
-          hostName = "Aurene";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            common-cpu-intel
-            common-cpu-intel-kaby-lake
-            common-pc-laptop
-            common-pc-laptop-ssd
-          ];
-          users = with users; [
-            maatje
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            steam
-            protonvpn
             update
           ];
         };
