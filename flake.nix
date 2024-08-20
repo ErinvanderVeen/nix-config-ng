@@ -124,7 +124,6 @@
           profiles = with profiles; [
             common
             gnome
-            printing
             steam
             tweag
             protonvpn
@@ -174,7 +173,6 @@
             gnome
             update
             tweag
-            printing
             protonvpn
           ];
         };
@@ -195,7 +193,6 @@
             common
             gnome
             ollama
-            printing
             protonvpn
             tweag
             update
