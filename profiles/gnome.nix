@@ -23,32 +23,17 @@
 
   environment.systemPackages = with pkgs.gnomeExtensions; [
     appindicator # Sys tray
-    blur-my-shell # Blur when opening menu
-    dash-to-dock # Pin dock
-    gsconnect # Connect to phone
-    just-perfection
-    syncthing-indicator
-    task-widget # Tasks
     vitals # Computer status
     paperwm # Scrolling WM
-    night-theme-switcher # Execute command on theme switch
+    valent
   ] ++ (with pkgs; [
     gnome-pomodoro
+    valent
   ]);
 
-  # gsconnect required ports
-  networking.firewall = {
-    allowedTCPPortRanges = [
-      {
-        from = 1716;
-        to = 1764;
-      }
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 1716;
-        to = 1764;
-      }
-    ];
+  # valent required ports
+  networking.firewall = rec {
+    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+    allowedUDPPortRanges = allowedTCPPortRanges;
   };
 }
