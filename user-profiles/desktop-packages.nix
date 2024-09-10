@@ -18,7 +18,6 @@
       hunspellDicts.sv_SE
       hunspellDicts.nl_NL
 
-      baobab
       blackbox-terminal
       celluloid
       element-desktop
@@ -30,7 +29,7 @@
       standardnotes
 
       signal-desktop
-      flare-signal
+      telegram-desktop
 
       transmission_4-gtk
     ];
