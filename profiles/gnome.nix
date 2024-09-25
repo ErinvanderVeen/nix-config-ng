@@ -16,8 +16,6 @@
     (with pkgs; [
       gnome-console
       gnome-tour
-    ])
-    ++ (with pkgs.gnome; [
       gnome-characters
     ]);
 
