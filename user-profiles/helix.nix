@@ -75,6 +75,10 @@
         typos = {
           command = "${pkgs.typos-lsp}/bin/typos-lsp";
         };
+        harper = {
+          command = "${pkgs.harper}/bin/harper-ls";
+          args = [ "--stdio" ];
+        };
       };
       language = [
         # {
@@ -104,7 +108,11 @@
             command = "${pkgs.typstfmt}/bin/typstfmt";
             args = [ "--output" "-" ];
           };
-          language-servers = [ "typst-lsp" "typos" "gpt" ];
+          language-servers = [ "typst-lsp" "typos" "harper" ];
+        }
+        {
+          name = "markdown";
+          language-servers = [ "harper" ];
         }
       ];
     };
