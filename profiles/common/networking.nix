@@ -1,6 +1,7 @@
 {
   networking = {
     networkmanager.enable = true;
+    # network manager requires useDHCP to be false
     useDHCP = false;
   };
 
