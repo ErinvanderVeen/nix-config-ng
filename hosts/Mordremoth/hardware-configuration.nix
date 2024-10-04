@@ -25,8 +25,6 @@
 
   swapDevices = [ ];
 
-  networking.useDHCP = lib.mkDefault true;
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
