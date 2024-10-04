@@ -135,7 +135,6 @@
             common-cpu-intel
             common-pc
             common-pc-ssd
-            common-pc-hdd
           ];
           users = with users; [
             nixos
