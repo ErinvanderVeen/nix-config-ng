@@ -7,7 +7,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHKbHnZJJ9fcqMEZ5hZzVTxzHgcDs4tJpCPYZx0XAij erin@Tequatl"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIER8TSugkBgvunwpyhvEhu65kkidfoUoq5Euup0ehuu/ erin@Trahearne"
     ];
   };
 
