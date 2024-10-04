@@ -69,7 +69,6 @@
             ssh
             syncthing
             terminal-packages
-            tweag
           ];
         };
 
@@ -125,7 +124,6 @@
             common
             gnome
             steam
-            tweag
             protonvpn
             update
           ];
@@ -160,23 +158,6 @@
           ];
         };
 
-        Tequatl = tyriaLib.mkNixosSystem {
-          hostName = "Tequatl";
-          hardwareModules = with nixos-hardware.nixosModules; [
-            lenovo-thinkpad-x1-9th-gen
-          ];
-          users = with users; [
-            erin
-          ];
-          profiles = with profiles; [
-            common
-            gnome
-            update
-            tweag
-            protonvpn
-          ];
-        };
-
         Trahearne = tyriaLib.mkNixosSystem {
           hostName = "Trahearne";
           rocmSupport = true;
@@ -194,7 +175,6 @@
             gnome
             ollama
             protonvpn
-            tweag
             update
           ];
         };
