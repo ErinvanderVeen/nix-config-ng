@@ -143,7 +143,7 @@
           profiles = with profiles; [
             common
             corectrl
-            home-assistant
+            # home-assistant
             jellyfin
             media-group
             minecraft
