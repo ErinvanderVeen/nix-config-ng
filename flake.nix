@@ -174,6 +174,7 @@
             gnome
             ollama
             protonvpn
+            steam
             update
           ];
         };
