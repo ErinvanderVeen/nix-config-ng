@@ -24,7 +24,7 @@
       keepassxc
       libreoffice-fresh
       pinta
-      planify # Todoist GUI
+      endeavour # Google Task UI
       protonmail-desktop
       standardnotes
 
