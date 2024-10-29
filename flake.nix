@@ -147,8 +147,8 @@
             jellyfin
             media-group
             minecraft
-            protonvpn
-            protonvpn-headless
+            # protonvpn
+            # protonvpn-headless
             samba
             syncthing
             syncthing-ports
