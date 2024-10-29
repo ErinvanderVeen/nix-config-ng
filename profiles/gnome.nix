@@ -23,15 +23,15 @@
     appindicator # Sys tray
     vitals # Computer status
     paperwm # Scrolling WM
-    valent
+    # valent # TODO: Broken
   ] ++ (with pkgs; [
     gnome-pomodoro
-    valent
+    # valent
   ]);
 
   # valent required ports
-  networking.firewall = rec {
-    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
+  # networking.firewall = rec {
+  #   allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+  #   allowedUDPPortRanges = allowedTCPPortRanges;
+  # };
 }
