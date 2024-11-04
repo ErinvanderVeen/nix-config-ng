@@ -56,6 +56,9 @@
         rust-analyzer = {
           config.check.command = "clippy";
         };
+        gopls = {
+          command = "${pkgs.gopls}/bin/gopls";
+        };
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [
@@ -84,10 +87,6 @@
         # {
         #   name = "rust";
         #   language-servers = [ "rust-analyzer" "gpt" ];
-        # }
-        # {
-        #   name = "go";
-        #   language-servers = [ "gopls" "gpt" ];
         # }
         {
           name = "html";
