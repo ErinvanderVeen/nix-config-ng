@@ -2,7 +2,26 @@
 , overlays
 , outputs
 , ...
-}: {
+}:
+let
+  mkUserInternal =
+    { userName ? "nixos"
+    , profiles ? [ ]
+    ,
+    }: {
+      imports = inputs.nixpkgs.lib.lists.flatten [
+        # Always load the home-manager module for this specific user
+        (../user-profiles + "/${userName}.nix")
+        {
+          home.username = userName;
+          home.homeDirectory = "/home/${userName}";
+        }
+
+        profiles
+      ];
+    };
+in
+rec {
   # Function to create a single NixOS system
   mkNixosSystem =
     { hardwareModules ? [ ]
@@ -51,25 +70,39 @@
       ];
     };
 
+  mkHomeManager =
+    { system ? "x86_64-linux"
+    }: args: inputs.home-manager.lib.homeManagerConfiguration {
+      modules = [
+        (mkUserInternal args)
+        {
+          home.stateVersion = "24.11";
+          targets.genericLinux.enable = true;
+          programs.home-manager.enable = true;
+        }
+      ];
+      extraSpecialArgs = { inherit inputs outputs; };
+      pkgs = import inputs.nixpkgs {
+        config.allowUnfree = true;
+        overlays = [
+          overlays.additions
+          overlays.modifications
+          inputs.nur.overlay
+        ];
+      };
+    };
+
   # Function to create a single user
   mkUser =
     { userName ? "nixos"
     , profiles ? [ ]
-    ,
-    }: {
+    } @ args: {
       imports = inputs.nixpkgs.lib.lists.flatten [
         # Always load the NixOS module for this specific user
         (../users + "/${userName}")
 
         {
-          home-manager.users.${userName} = { pkgs, ... }: {
-            imports = inputs.nixpkgs.lib.lists.flatten [
-              # Always load the home-manager module for this specific user
-              (../user-profiles + "/${userName}.nix")
-
-              profiles
-            ];
-          };
+          home-manager.users.${userName} = mkUserInternal args;
         }
       ];
     };

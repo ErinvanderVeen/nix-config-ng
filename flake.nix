@@ -59,6 +59,7 @@
             common
             dconf
             desktop-packages
+            gnome
             direnv
             discord
             git
@@ -180,7 +181,23 @@
         };
       };
 
-      # TODO: Right now, home configurations are handled through the NixOS home-manager modules
-      homeConfigurations = { };
+      homeConfigurations = {
+        erin-development = tyriaLib.mkHomeManager { system = "x86_64-linux"; } {
+          userName = "erin";
+          profiles = with user-profiles; [
+            bat
+            common
+            dconf
+            development-desktop-packages
+            direnv
+            git
+            gnome
+            helix
+            lazygit
+            ssh
+            terminal-packages
+          ];
+        };
+      };
     };
 }

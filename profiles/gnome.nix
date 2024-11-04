@@ -15,15 +15,9 @@
       gnome-characters
     ]);
 
-  environment.systemPackages = with pkgs.gnomeExtensions; [
-    appindicator # Sys tray
-    vitals # Computer status
-    paperwm # Scrolling WM
-    # valent # TODO: Broken
-  ] ++ (with pkgs; [
+  environment.systemPackages = with pkgs; [
     gnome-pomodoro
-    # valent
-  ]);
+  ];
 
   # valent required ports
   # networking.firewall = rec {
