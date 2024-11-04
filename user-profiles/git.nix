@@ -22,10 +22,10 @@
 
     includes = [
       {
-        condition = "gitdir:~/Projects/tweag/";
+        condition = "gitdir:~/Projects/einride/";
         contents = {
           user = {
-            email = "erin.vanderveen@tweag.io";
+            email = "erin.vanderveen@einride.tech";
           };
         };
       }
