@@ -196,6 +196,7 @@
             development-desktop-packages
             direnv
             git
+            github
             gnome
             helix
             lazygit

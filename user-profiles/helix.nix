@@ -90,7 +90,7 @@
         # }
         {
           name = "html";
-          language-servers = [ "vscode-html-language-server" "gpt" ];
+          language-servers = [ "vscode-html-language-server" ];
         }
         {
           name = "nix";
@@ -98,7 +98,7 @@
           formatter = {
             command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
           };
-          language-servers = [ "nil" "gpt" ];
+          language-servers = [ "nil" ];
         }
         {
           name = "typst";
