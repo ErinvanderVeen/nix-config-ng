@@ -17,6 +17,11 @@
     };
 
     nur.url = "github:nix-community/NUR";
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -194,6 +199,7 @@
             gnome
             helix
             lazygit
+            nixgl
             ssh
             terminal-packages
           ];

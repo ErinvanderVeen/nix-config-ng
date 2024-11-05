@@ -1,7 +1,8 @@
-{ inputs, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
+    package = (config.lib.nixGL.wrap pkgs.firefox);
     profiles.default = {
       name = "Default";
       settings = {

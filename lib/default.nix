@@ -40,6 +40,7 @@ rec {
           overlays.additions
           overlays.modifications
           inputs.nur.overlay
+          inputs.nixgl.overlay
         ];
       };
 
@@ -88,6 +89,7 @@ rec {
           overlays.additions
           overlays.modifications
           inputs.nur.overlay
+          inputs.nixgl.overlay
         ];
       };
     };
