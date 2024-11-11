@@ -20,7 +20,10 @@
       NIX_AUTO_RUN = "1";
     };
 
-    # Selection of sysadmin tools that can come in handy
+    # Selection of sysadmin tools that can come in handy. Many of these are
+    # duplicated in the user-profiles section. The reason for this is that we
+    # want them to be available to every users on a NixOS system, and at least
+    # also the home-manager user on a home-manager install.
     systemPackages = with pkgs; [
       bat
       bottom
@@ -35,7 +38,7 @@
       ripgrep
       skim
       tealdeer
-      utillinux
+      util-linux
     ];
   };
 
