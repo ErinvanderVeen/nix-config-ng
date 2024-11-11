@@ -19,7 +19,7 @@
       init.defaultBranch = "main";
       pull.rebase = false;
       url = {
-        "git@github.com:" = {
+        "ssh://git@github.com/" = {
           insteadOf = "https://github.com/";
         };
       };

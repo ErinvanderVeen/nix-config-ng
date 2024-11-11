@@ -60,21 +60,14 @@
         erin = tyriaLib.mkUser {
           userName = "erin";
           profiles = with user-profiles; [
-            bat
             common
             dconf
             desktop-packages
             gnome
-            direnv
             discord
-            git
             github
-            helix
-            lazygit
             lutris
-            ssh
             syncthing
-            terminal-packages
           ];
         };
 
@@ -82,10 +75,6 @@
           userName = "nixos";
           profiles = with user-profiles; [
             common
-            git
-            helix
-            lazygit
-            ssh
           ];
         };
 
@@ -190,19 +179,12 @@
         erin-development = tyriaLib.mkHomeManager { system = "x86_64-linux"; } {
           userName = "erin";
           profiles = with user-profiles; [
-            bat
             common
             dconf
             development-desktop-packages
-            direnv
-            git
             github
             gnome
-            helix
-            lazygit
             nixgl
-            ssh
-            terminal-packages
           ];
         };
       };

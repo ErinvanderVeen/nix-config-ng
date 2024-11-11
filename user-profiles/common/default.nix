@@ -1,8 +1,15 @@
 { pkgs, ... }: {
 
   imports = [
-    ./shell.nix
+    ./bat.nix
+    ./direnv.nix
     ./eza.nix
+    ./git.nix
+    ./helix.nix
+    ./lazygit.nix
+    ./shell.nix
+    ./skim.nix
+    ./ssh.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,6 +20,7 @@
     eza
     fd
     jq
+    nix-output-monitor
     ripgrep
     skim
     tealdeer
