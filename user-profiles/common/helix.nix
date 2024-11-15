@@ -57,9 +57,6 @@
         rust-analyzer = {
           config.check.command = "clippy";
         };
-        gopls = {
-          command = "${pkgs.gopls}/bin/gopls";
-        };
         gpt = {
           command = "${pkgs.helix-gpt}/bin/helix-gpt";
           args = [
