@@ -13,6 +13,9 @@
     rustc
     rust-analyzer
     rustfmt
+
+    # Note taking
+    marksman
   ];
   home.sessionVariables = {
     RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
