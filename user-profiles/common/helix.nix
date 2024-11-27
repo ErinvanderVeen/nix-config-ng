@@ -1,24 +1,5 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    # clipboard
-    wl-clipboard
-    xclip
-
-    # Language servers
-    ## Nix
-    nil
-
-    ## Rust
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
-
-    # Note taking
-    marksman
-  ];
   home.sessionVariables = {
-    RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     EDITOR = "hx";
   };
 
@@ -55,64 +36,42 @@
       };
     };
 
+    # Some language servers and formatters should be available even when not in
+    # a devShell. These are added here to Helix's path.
+    extraPackages = with pkgs; [
+      # clipboard
+      wl-clipboard
+
+      # Language servers
+      nil # Nix
+      nixfmt-rfc-style # Official nix fmt
+      marksman # Note taking / markdown / personal wiki
+    ];
+
     languages = {
       language-server = {
         rust-analyzer = {
           config.check.command = "clippy";
         };
-        gpt = {
-          command = "${pkgs.helix-gpt}/bin/helix-gpt";
-          args = [
-            "--handler"
-            "ollama"
-
-            "--ollamaModel"
-            "codellama"
-
-            "--ollamaEndpoint"
-            "http:///Trahearne.local:11434"
-
-            "--triggerCharacters"
-            "{"
+        nil = {
+          config.nil.formatting.command = [
+            "nixfmt"
           ];
-        };
-        typos = {
-          command = "${pkgs.typos-lsp}/bin/typos-lsp";
-        };
-        harper = {
-          command = "${pkgs.harper}/bin/harper-ls";
-          args = [ "--stdio" ];
         };
       };
       language = [
-        # {
-        #   name = "rust";
-        #   language-servers = [ "rust-analyzer" "gpt" ];
-        # }
-        {
-          name = "html";
-          language-servers = [ "vscode-html-language-server" ];
-        }
         {
           name = "nix";
           auto-format = true;
-          formatter = {
-            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-          };
-          language-servers = [ "nil" ];
         }
         {
           name = "typst";
           auto-format = true;
-          formatter = {
-            command = "${pkgs.typstfmt}/bin/typstfmt";
-            args = [ "--output" "-" ];
-          };
-          language-servers = [ "typst-lsp" "typos" "harper" ];
+          language-servers = [ "tinymist" "harper" ];
         }
         {
           name = "markdown";
-          language-servers = [ "harper" ];
+          language-servers = [ "marksman" "harper" ];
         }
       ];
     };
