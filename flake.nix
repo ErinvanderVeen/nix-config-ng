@@ -25,12 +25,13 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , nixos-hardware
-    , ...
-    } @ inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       # I purposefully do not support darwin or 32 bit
@@ -39,12 +40,14 @@
         "x86_64-linux"
       ];
 
-      createProfiles = dir: builtins.listToAttrs (map
-        (a: {
-          name = nixpkgs.lib.strings.removeSuffix ".nix" a;
-          value = dir + "/${a}";
-        })
-        (builtins.attrNames (builtins.readDir dir)));
+      createProfiles =
+        dir:
+        builtins.listToAttrs (
+          map (a: {
+            name = nixpkgs.lib.strings.removeSuffix ".nix" a;
+            value = dir + "/${a}";
+          }) (builtins.attrNames (builtins.readDir dir))
+        );
 
       profiles = createProfiles ./profiles;
       user-profiles = createProfiles ./user-profiles;

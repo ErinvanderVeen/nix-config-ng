@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   home.packages = with pkgs; [
     nixgl.auto.nixGLDefault
   ];
@@ -6,4 +7,3 @@
     packages = inputs.nixgl.packages;
   };
 }
-

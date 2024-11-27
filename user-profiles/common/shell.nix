@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.shellAliases = {
     grep = "rg";
 
@@ -22,7 +23,9 @@
       ${pkgs.starship}/bin/starship init fish | source
     '';
     plugins = with pkgs.fishPlugins; [
-      (with done; { inherit name src; })
+      (with done; {
+        inherit name src;
+      })
     ];
   };
 }

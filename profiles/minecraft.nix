@@ -1,7 +1,9 @@
-{ lib
-, pkgs
-, ...
-}: {
+{
+  lib,
+  pkgs,
+  ...
+}:
+{
   services.minecraft-server = {
     jvmOpts = "-Xmx6G -Xms6G";
     enable = true;

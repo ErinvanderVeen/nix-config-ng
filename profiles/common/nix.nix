@@ -9,10 +9,16 @@
     optimise.automatic = true;
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       # Give root user and wheel group special Nix privileges.
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
 
       # Improve nix store disk usage
       auto-optimise-store = true;

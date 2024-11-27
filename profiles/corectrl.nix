@@ -1,3 +1,4 @@
-{...}: {
+{ ... }:
+{
   programs.corectrl.enable = true;
 }

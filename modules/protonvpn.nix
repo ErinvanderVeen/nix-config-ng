@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.protonvpn;
-in {
+in
+{
   options = {
     services.protonvpn = {
       enable = mkEnableOption "Enable ProtonVPN";
@@ -25,8 +27,8 @@ in {
         };
 
         address = mkOption {
-          example = ["192.168.2.1/24"];
-          default = ["192.168.2.1/24"];
+          example = [ "192.168.2.1/24" ];
+          default = [ "192.168.2.1/24" ];
           type = with types; listOf str;
           description = lib.mdDoc "The IP addresses of the interface.";
         };
@@ -89,7 +91,10 @@ in {
       peers = [
         {
           publicKey = cfg.peer.publicKey;
-          allowedIPs = ["0.0.0.0/0" "::/0"];
+          allowedIPs = [
+            "0.0.0.0/0"
+            "::/0"
+          ];
           endpoint = cfg.peer.endpoint;
         }
       ];

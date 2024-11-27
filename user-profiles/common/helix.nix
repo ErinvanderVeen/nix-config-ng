@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.sessionVariables = {
     EDITOR = "hx";
   };
@@ -67,14 +68,19 @@
         {
           name = "typst";
           auto-format = true;
-          language-servers = [ "tinymist" "harper" ];
+          language-servers = [
+            "tinymist"
+            "harper"
+          ];
         }
         {
           name = "markdown";
-          language-servers = [ "marksman" "harper" ];
+          language-servers = [
+            "marksman"
+            "harper"
+          ];
         }
       ];
     };
   };
 }
-

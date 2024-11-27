@@ -1,5 +1,6 @@
 # This module contains all packages without much/any configuration.
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./development-desktop-packages.nix
   ];
@@ -9,7 +10,7 @@
       celluloid
       element-desktop
       keepassxc
-      libreoffice-fresh
+      # libreoffice-fresh
       pinta
       protonmail-desktop
       standardnotes

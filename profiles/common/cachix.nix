@@ -1,7 +1,8 @@
-{...}: {
+{ ... }:
+{
   imports = [
     {
-      nix.settings.substituters = ["https://cache.nixos.org/"];
+      nix.settings.substituters = [ "https://cache.nixos.org/" ];
     }
     {
       nix.settings = {

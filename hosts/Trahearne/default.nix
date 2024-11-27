@@ -1,4 +1,5 @@
-{suites, ...}: {
+{ suites, ... }:
+{
   imports = [
     ./hardware-configuration.nix
   ];

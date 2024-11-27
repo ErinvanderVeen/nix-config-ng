@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.protonvpn = {
     enable = true;
     interface = {

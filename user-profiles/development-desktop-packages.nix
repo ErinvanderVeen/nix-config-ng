@@ -1,5 +1,6 @@
 # This module contains all packages without much/any configuration.
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./firefox.nix
   ];
@@ -21,7 +22,7 @@
       fira-code-nerdfont
       blackbox-terminal
 
-      libreoffice-fresh
+      # libreoffice-fresh
       endeavour # Google Task UI
     ];
     keyboard = null;

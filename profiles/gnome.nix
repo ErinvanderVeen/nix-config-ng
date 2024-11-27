@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services = {
     xserver = {
       enable = true;
@@ -8,12 +9,14 @@
     };
   };
 
-  environment.gnome.excludePackages =
-    (with pkgs; [
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
       gnome-console
       gnome-tour
       gnome-characters
-    ]);
+    ]
+  );
 
   environment.systemPackages = with pkgs; [
     gnome-pomodoro

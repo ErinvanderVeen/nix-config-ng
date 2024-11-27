@@ -1,14 +1,16 @@
-{ inputs
-, overlays
-, outputs
-, ...
+{
+  inputs,
+  overlays,
+  outputs,
+  ...
 }:
 let
   mkUserInternal =
-    { userName ? "nixos"
-    , profiles ? [ ]
-    ,
-    }: {
+    {
+      userName ? "nixos",
+      profiles ? [ ],
+    }:
+    {
       imports = inputs.nixpkgs.lib.lists.flatten [
         # Always load the home-manager module for this specific user
         (../user-profiles + "/${userName}.nix")
@@ -24,13 +26,13 @@ in
 rec {
   # Function to create a single NixOS system
   mkNixosSystem =
-    { hardwareModules ? [ ]
-    , users ? [ users.nixos ]
-    , profiles ? [ ]
-    , hostName ? "NixOS"
-    , system ? "x86_64-linux"
-    , rocmSupport ? false
-    ,
+    {
+      hardwareModules ? [ ],
+      users ? [ users.nixos ],
+      profiles ? [ ],
+      hostName ? "NixOS",
+      system ? "x86_64-linux",
+      rocmSupport ? false,
     }:
     let
       pkgs = import inputs.nixpkgs {
@@ -49,7 +51,9 @@ rec {
     inputs.nixpkgs.lib.nixosSystem rec {
       inherit system;
       inherit pkgs;
-      specialArgs = { inherit inputs outputs; };
+      specialArgs = {
+        inherit inputs outputs;
+      };
       modules = inputs.nixpkgs.lib.lists.flatten [
         nixos-modules
         inputs.home-manager.nixosModules.home-manager
@@ -72,8 +76,11 @@ rec {
     };
 
   mkHomeManager =
-    { system ? "x86_64-linux"
-    }: args: inputs.home-manager.lib.homeManagerConfiguration {
+    {
+      system ? "x86_64-linux",
+    }:
+    args:
+    inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         (mkUserInternal args)
         {
@@ -82,7 +89,9 @@ rec {
           programs.home-manager.enable = true;
         }
       ];
-      extraSpecialArgs = { inherit inputs outputs; };
+      extraSpecialArgs = {
+        inherit inputs outputs;
+      };
       pkgs = import inputs.nixpkgs {
         config.allowUnfree = true;
         overlays = [
@@ -96,9 +105,11 @@ rec {
 
   # Function to create a single user
   mkUser =
-    { userName ? "nixos"
-    , profiles ? [ ]
-    } @ args: {
+    {
+      userName ? "nixos",
+      profiles ? [ ],
+    }@args:
+    {
       imports = inputs.nixpkgs.lib.lists.flatten [
         # Always load the NixOS module for this specific user
         (../users + "/${userName}")

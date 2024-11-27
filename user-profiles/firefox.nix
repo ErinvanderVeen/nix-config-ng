@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.firefox = {
     enable = true;
@@ -29,12 +34,17 @@
       ];
       search = {
         force = true;
-        order = [ "Ecosia" "DuckDuckGo" ];
+        order = [
+          "Ecosia"
+          "DuckDuckGo"
+        ];
         engines = {
           "Ecosia" = {
-            urls = [{
-              template = "https://www.ecosia.org/search?q={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://www.ecosia.org/search?q={searchTerms}";
+              }
+            ];
             iconUpdateURL = "https://www.ecosia.org/static/icons/favicon.ico";
             definedAliases = [ "@eco" ];
           };
