@@ -44,9 +44,10 @@
       wl-clipboard
 
       # Language servers
+      harper # Spell checking
+      marksman # Note taking / markdown / personal wiki
       nil # Nix
       nixfmt-rfc-style # Official nix fmt
-      marksman # Note taking / markdown / personal wiki
     ];
 
     languages = {
@@ -58,6 +59,9 @@
           config.nil.formatting.command = [
             "nixfmt"
           ];
+        };
+        harper = {
+          command = "harper-ls";
         };
       };
       language = [
