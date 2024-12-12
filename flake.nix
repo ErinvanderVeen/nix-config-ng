@@ -145,6 +145,7 @@
             jellyfin
             media-group
             minecraft
+            nextcloud
             # protonvpn
             # protonvpn-headless
             samba

@@ -23,6 +23,7 @@
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
   services.minecraft-server.dataDir = "/var/nas-data/minecraft";
+  services.nextcloud.home = "/var/nas-data/nextcloud";
   services.samba.settings = {
     media = {
       path = "/var/nas-data/media/";
