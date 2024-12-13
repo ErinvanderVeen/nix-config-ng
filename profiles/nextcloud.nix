@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   services.nextcloud = {
     enable = true;
@@ -8,6 +13,7 @@
       adminpassFile = "/etc/nextcloud-pass-file";
     };
     package = pkgs.nextcloud30;
+    appstoreEnable = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
         contacts
@@ -18,6 +24,11 @@
         music
         notes
         ;
+    };
+    settings = {
+      "memories.exiftool" = lib.getExe pkgs.exiftool;
+      "memories.vod.ffmpeg" = lib.getExe pkgs.ffmpeg-headless;
+      "memories.vod.ffprobe" = lib.getExe' pkgs.ffmpeg-headless "ffprobe";
     };
   };
 
