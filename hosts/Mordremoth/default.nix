@@ -35,6 +35,16 @@
       "force user" = "media";
       "force group" = "media";
     };
+    nextcloud = {
+      path = "/var/nas-data/nextcloud/";
+      browseable = "yes";
+      "read only" = "no";
+      "guest ok" = "no";
+      "create mask" = "0644";
+      "directory mask" = "0755";
+      "force user" = "media";
+      "force group" = "media";
+    };
     minecraft = {
       path = "/var/nas-data/minecraft/";
       browseable = "yes";
