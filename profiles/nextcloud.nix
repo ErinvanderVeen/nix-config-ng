@@ -40,6 +40,8 @@
     nodejs_20.pkgs.node-pre-gyp # installation requirement
     python3 # requirement for node-pre-gyp otherwise fails with exit code 236
     util-linux # runtime requirement for taskset
+
+    config.services.nextcloud.occ
   ];
 
   systemd.services.nextcloud-setup = {
