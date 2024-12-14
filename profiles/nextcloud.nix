@@ -29,6 +29,7 @@
       "memories.exiftool" = lib.getExe pkgs.exiftool;
       "memories.vod.ffmpeg" = lib.getExe pkgs.ffmpeg-headless;
       "memories.vod.ffprobe" = lib.getExe' pkgs.ffmpeg-headless "ffprobe";
+      log_type = "file";
     };
   };
 
