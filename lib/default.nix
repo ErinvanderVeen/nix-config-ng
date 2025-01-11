@@ -23,7 +23,7 @@ let
       ];
     };
 in
-rec {
+{
   # Function to create a single NixOS system
   mkNixosSystem =
     {
@@ -41,7 +41,7 @@ rec {
         overlays = [
           overlays.additions
           overlays.modifications
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.nixgl.overlay
         ];
       };
@@ -97,7 +97,7 @@ rec {
         overlays = [
           overlays.additions
           overlays.modifications
-          inputs.nur.overlay
+          inputs.nur.overlays.default
           inputs.nixgl.overlay
         ];
       };

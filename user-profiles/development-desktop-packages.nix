@@ -3,6 +3,7 @@
 {
   imports = [
     ./firefox.nix
+    ./ghostty.nix
   ];
 
   home = {
@@ -20,7 +21,6 @@
       hunspellDicts.nl_NL
 
       fira-code-nerdfont
-      blackbox-terminal
 
       # libreoffice-fresh
       endeavour # Google Task UI
@@ -29,7 +29,7 @@
   };
 
   systemd.user.sessionVariables = {
-    TERM = "blackbox";
+    TERM = "ghostty";
   };
 
   xsession = {
