@@ -7,7 +7,12 @@
   programs.helix = {
     enable = true;
     settings = {
+      theme = "base16_terminal";
       editor = {
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "hint";
+        };
         line-number = "relative";
         cursorline = true;
         bufferline = "always";
@@ -31,8 +36,16 @@
       };
       keys = {
         normal = {
-          "tab" = ":buffer-next";
-          "S-tab" = ":buffer-previous";
+          tab = ":buffer-next";
+          S-tab = ":buffer-previous";
+          space = {
+            g = [
+              ":new"
+              ":insert-output lazygit"
+              ":buffer-close!"
+              ":redraw"
+            ];
+          };
         };
       };
     };
@@ -45,9 +58,10 @@
 
       # Language servers
       harper # Spell checking
-      marksman # Note taking / markdown / personal wiki
+      markdown-oxide # Note taking / markdown / personal wiki
       nil # Nix
       nixfmt-rfc-style # Official nix fmt
+      helix-gpt
     ];
 
     languages = {
@@ -62,6 +76,25 @@
         };
         harper = {
           command = "harper-ls";
+        };
+        gpt = {
+          command = "helix-gpt";
+          args = [
+            "--handler"
+            "ollama"
+            "--ollamaModel"
+            "codellama"
+            "--fetchTimeout"
+            "300000"
+            "--actionTimeout"
+            "300000"
+            "--completionTimeout"
+            "300000"
+            "--ollamaTimeout"
+            "300000"
+            "--triggerCharacters"
+            ""
+          ];
         };
       };
       language = [
@@ -78,9 +111,17 @@
           ];
         }
         {
+          name = "go";
+          language-servers = [
+            # "gpt"
+            "gopls"
+            "golangci-lint-lsp"
+          ];
+        }
+        {
           name = "markdown";
           language-servers = [
-            "marksman"
+            "markdown-oxide"
             "harper"
           ];
         }
