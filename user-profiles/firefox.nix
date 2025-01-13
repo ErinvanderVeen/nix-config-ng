@@ -25,9 +25,9 @@
         @import "${inputs.firefox-gnome-theme}/userContent.css";
       '';
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        bitwarden
         ecosia
         privacy-badger
-        proton-pass
         simple-translate
         sponsorblock
         ublock-origin

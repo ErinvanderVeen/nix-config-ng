@@ -7,12 +7,11 @@
 
   home = {
     packages = with pkgs; [
+      bitwarden-desktop
       celluloid
       element-desktop
-      keepassxc
       # libreoffice-fresh
       pinta
-      protonmail-desktop
       standardnotes
 
       signal-desktop

@@ -122,7 +122,6 @@
             common
             gnome
             steam
-            protonvpn
             update
           ];
         };
@@ -146,8 +145,6 @@
             media-group
             minecraft
             # nextcloud
-            # protonvpn
-            # protonvpn-headless
             samba
             syncthing
             syncthing-ports
@@ -172,7 +169,6 @@
             common
             gnome
             ollama
-            protonvpn
             steam
             update
           ];
