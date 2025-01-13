@@ -13,6 +13,10 @@
     cat = "bat";
   };
 
+  home.sessionVariables = {
+    fish_greeting = "";
+  };
+
   # Bash is enabled to have shell completion and other things.
   # Generally, try to avoid bash.
   programs.bash.enable = true;
