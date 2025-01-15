@@ -46,8 +46,8 @@ in
         ];
       };
 
-      nixos-modules = map (a: ../modules + "/${a}") (builtins.attrNames (builtins.readDir ../modules));
     in
+    # nixos-modules = map (a: ../modules + "/${a}") (builtins.attrNames (builtins.readDir ../modules));
     inputs.nixpkgs.lib.nixosSystem rec {
       inherit system;
       inherit pkgs;
@@ -55,7 +55,7 @@ in
         inherit inputs outputs;
       };
       modules = inputs.nixpkgs.lib.lists.flatten [
-        nixos-modules
+        # nixos-modules
         inputs.home-manager.nixosModules.home-manager
         {
           networking.hostName = hostName;

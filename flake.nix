@@ -143,11 +143,11 @@
             # home-assistant
             jellyfin
             media-group
-            minecraft
+            # minecraft
             # nextcloud
             samba
-            syncthing
-            syncthing-ports
+            # syncthing
+            # syncthing-ports
             transmission
             update
           ];
@@ -171,6 +171,7 @@
             ollama
             steam
             update
+            mullvad
           ];
         };
       };
