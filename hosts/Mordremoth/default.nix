@@ -23,7 +23,7 @@
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
   services.minecraft-server.dataDir = "/var/nas-data/minecraft";
-  services.nextcloud.home = "/var/nas-data/nextcloud";
+  # services.nextcloud.home = "/var/nas-data/nextcloud";
   services.samba.settings = {
     media = {
       path = "/var/nas-data/media/";
@@ -35,16 +35,16 @@
       "force user" = "media";
       "force group" = "media";
     };
-    nextcloud = {
-      path = "/var/nas-data/nextcloud/";
-      browseable = "yes";
-      "read only" = "no";
-      "guest ok" = "no";
-      "create mask" = "0644";
-      "directory mask" = "0755";
-      "force user" = "media";
-      "force group" = "media";
-    };
+    # nextcloud = {
+    #   path = "/var/nas-data/nextcloud/";
+    #   browseable = "yes";
+    #   "read only" = "no";
+    #   "guest ok" = "no";
+    #   "create mask" = "0644";
+    #   "directory mask" = "0755";
+    #   "force user" = "media";
+    #   "force group" = "media";
+    # };
     minecraft = {
       path = "/var/nas-data/minecraft/";
       browseable = "yes";
