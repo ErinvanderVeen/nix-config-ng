@@ -141,6 +141,7 @@
             common
             corectrl
             # home-assistant
+            immich
             jellyfin
             media-group
             # minecraft

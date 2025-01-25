@@ -22,6 +22,7 @@
     download-dir = "/var/nas-data/media/complete";
     incomplete-dir = "/var/nas-data/media/incomplete";
   };
+  services.immich.mediaLocation = "/var/nas-data/immich";
   services.minecraft-server.dataDir = "/var/nas-data/minecraft";
   # services.nextcloud.home = "/var/nas-data/nextcloud";
   services.samba.settings = {
