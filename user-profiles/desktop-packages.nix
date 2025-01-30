@@ -8,6 +8,7 @@
 
   home = {
     packages = with pkgs; [
+      alpaca
       bitwarden-desktop
       celluloid
       element-desktop

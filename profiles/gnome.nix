@@ -6,25 +6,16 @@
       desktopManager.xterm.enable = false;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
+      excludePackages = with pkgs; [ xterm ];
     };
   };
 
-  environment.gnome.excludePackages = (
-    with pkgs;
-    [
-      gnome-console
-      gnome-tour
-      gnome-characters
-    ]
-  );
+  # Allows starting terminal applications from GNOME
+  xdg.terminal-exec.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    gnome-pomodoro
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-console
+    gnome-tour
+    gnome-characters
   ];
-
-  # valent required ports
-  # networking.firewall = rec {
-  #   allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-  #   allowedUDPPortRanges = allowedTCPPortRanges;
-  # };
 }

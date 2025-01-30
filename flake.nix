@@ -70,7 +70,6 @@
             discord
             github
             lutris
-            syncthing
           ];
         };
 
@@ -144,11 +143,7 @@
             immich
             jellyfin
             media-group
-            # minecraft
-            # nextcloud
             samba
-            # syncthing
-            # syncthing-ports
             transmission
             update
           ];
@@ -169,7 +164,7 @@
           profiles = with profiles; [
             common
             gnome
-            ollama
+            # ollama
             steam
             update
             mullvad

@@ -7,7 +7,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "base16_terminal";
+      theme = "adwaita-light";
       editor = {
         end-of-line-diagnostics = "hint";
         inline-diagnostics = {
