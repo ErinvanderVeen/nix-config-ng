@@ -3,6 +3,7 @@
 {
   imports = [
     ./development-desktop-packages.nix
+    ./gtk.nix
   ];
 
   home = {
