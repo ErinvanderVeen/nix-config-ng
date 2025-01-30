@@ -20,8 +20,6 @@
       hunspellDicts.sv_SE
       hunspellDicts.nl_NL
 
-      fira-code-nerdfont
-
       # libreoffice-fresh
       endeavour # Google Task UI
     ];
