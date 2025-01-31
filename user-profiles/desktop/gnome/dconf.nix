@@ -76,6 +76,7 @@ with lib.hm.gvariant;
       font-antialiasing = "grayscale";
       font-hinting = "slight";
       font-name = "Inter Variable 11";
+      icon-theme = "MoreWaita";
       overlay-scrolling = true;
       toolkit-accessibility = false;
     };
