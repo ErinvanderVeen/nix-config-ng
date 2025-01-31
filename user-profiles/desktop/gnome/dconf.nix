@@ -1,19 +1,9 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "light-style@gnome-shell-extensions.gcampax.github.com"
-        "system-monitor@gnome-shell-extensions.gcampax.github.com"
-      ];
-      last-selected-power-profile = "performance";
-      remember-mount-password = true;
-      welcome-dialog-last-shown-version = "44.2";
-    };
 
     "org/gnome/Weather" = {
       locations = [
@@ -57,6 +47,10 @@ with lib.hm.gvariant;
       show-weekdate = true;
     };
 
+    "org/gnome/desktop/datetime" = {
+      automatic-timezone = true;
+    };
+
     "org/gnome/desktop/input-sources" = {
       sources = [
         (mkTuple [
@@ -75,7 +69,7 @@ with lib.hm.gvariant;
       clock-format = "24h";
       clock-show-date = false;
       clock-show-seconds = false;
-      clock-show-weekday = true;
+      clock-show-weekday = false;
       color-scheme = "default";
       cursor-size = 32;
       enable-animations = true;
@@ -96,11 +90,6 @@ with lib.hm.gvariant;
       two-finger-scrolling-enabled = true;
     };
 
-    "org/gnome/desktop/privacy" = {
-      old-files-age = mkUint32 30;
-      recent-files-max-age = -1;
-    };
-
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       lock-enabled = false;
@@ -110,30 +99,27 @@ with lib.hm.gvariant;
       secondary-color = "#000000";
     };
 
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 0;
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
+      maximize = [ "<Super>Up" ];
       switch-windows = [ "<Alt>Tab" ];
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
+      unmaximize = [
+        "<Super>Down"
+      ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:close";
-      focus-mode = "click";
       resize-with-right-button = true;
     };
 
     "org/gnome/epiphany" = {
       ask-for-default = false;
       default-search-engine = "DuckDuckGo";
-    };
-
-    "org/gnome/evince/default" = {
-      continuous = true;
-      dual-page = false;
-      enable-spellchecking = true;
-      fullscreen = false;
-      inverted-colors = false;
-      show-sidebar = true;
-      sidebar-page = "thumbnails";
     };
 
     "org/gnome/gnome-session" = {
@@ -143,17 +129,6 @@ with lib.hm.gvariant;
     "org/gnome/gnome-system-monitor" = {
       cpu-smooth-graph = true;
       cpu-stacked-area-chart = true;
-      network-in-bits = true;
-      network-total-in-bits = true;
-      network-total-unit = false;
-      show-dependencies = false;
-      show-whose-processes = "user";
-      smooth-refresh = true;
-      update-interval = 1000;
-    };
-
-    "org/gnome/maps" = {
-      map-type = "MapsVectorSource";
     };
 
     "org/gnome/mutter" = {
@@ -162,15 +137,33 @@ with lib.hm.gvariant;
       workspaces-only-on-primary = true;
     };
 
-    "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = [ "<Super>Left" ];
-      toggle-tiled-right = [ "<Super>Right" ];
+    "org/gnome/papers/default" = {
+      continuous = true;
+      dual-page = false;
+      dual-page-odd-left = false;
+      enable-spellchecking = false;
+      fullscreen = false;
+      inverted-colors = false;
+      show-sidebar = true;
+      sidebar-page = "links";
+      sizing-mode = "automatic";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Control><Alt>t";
-      command = "xdg-terminal-exec";
+      command = "${pkgs.xdg-terminal-exec}/bin/xdg-terminal-exec";
       name = "terminal";
+    };
+
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "light-style@gnome-shell-extensions.gcampax.github.com"
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "blur-my-shell@aunetx"
+        "dash-to-dock@micxgx.gmail.com"
+      ];
+      remember-mount-password = true;
     };
 
     "org/gnome/shell/app-switcher" = {

@@ -9,8 +9,10 @@
 
   programs.gnome-shell = {
     enable = true;
+    # Remember to also update the dconf rules in ./dconf.nix
     extensions = with pkgs.gnomeExtensions; [
-      { package = appindicator; } # Sys tray
+      { package = blur-my-shell; }
+      { package = dash-to-dock; }
     ];
   };
 }
