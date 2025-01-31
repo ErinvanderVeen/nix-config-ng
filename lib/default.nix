@@ -13,17 +13,35 @@ let
     {
       imports = inputs.nixpkgs.lib.lists.flatten [
         # Always load the home-manager module for this specific user
-        (../user-profiles + "/${userName}.nix")
+        (../user-profiles + "/users/${userName}.nix")
         {
           home.username = userName;
           home.homeDirectory = "/home/${userName}";
         }
 
-        profiles
+        (builtins.map collectLeafs profiles)
       ];
     };
+
+  collectLeafs =
+    subtree:
+    if builtins.isAttrs subtree then
+      let
+        traverse =
+          attrSet: acc:
+          builtins.foldl' (
+            accum: key:
+            let
+              val = attrSet.${key};
+            in
+            if builtins.isAttrs val then traverse val accum else accum ++ [ val ]
+          ) acc (builtins.attrNames attrSet);
+      in
+      traverse subtree [ ]
+    else
+      [ subtree ];
 in
-{
+rec {
   # Function to create a single NixOS system
   mkNixosSystem =
     {
@@ -53,6 +71,7 @@ in
       inherit pkgs;
       specialArgs = {
         inherit inputs outputs;
+        tyriaLib = import ./tyria.nix { inherit pkgs; };
       };
       modules = inputs.nixpkgs.lib.lists.flatten [
         # nixos-modules
@@ -71,7 +90,7 @@ in
         (../hosts + "/${hostName}")
 
         users
-        profiles
+        (builtins.map collectLeafs profiles)
       ];
     };
 
@@ -80,7 +99,7 @@ in
       system ? "x86_64-linux",
     }:
     args:
-    inputs.home-manager.lib.homeManagerConfiguration {
+    inputs.home-manager.lib.homeManagerConfiguration rec {
       modules = [
         (mkUserInternal args)
         {
@@ -91,6 +110,7 @@ in
       ];
       extraSpecialArgs = {
         inherit inputs outputs;
+        tyriaLib = import ./tyria.nix { inherit pkgs; };
       };
       pkgs = import inputs.nixpkgs {
         config.allowUnfree = true;
@@ -119,4 +139,21 @@ in
         }
       ];
     };
+
+  createProfiles =
+    dir:
+    let
+      files = builtins.readDir dir;
+      sanitizeName = name: inputs.nixpkgs.lib.strings.removeSuffix ".nix" name;
+      mapEntry =
+        name: type:
+        let
+          cleanName = sanitizeName name;
+        in
+        if type == "directory" then
+          { ${cleanName} = createProfiles (dir + "/${name}"); }
+        else
+          { ${cleanName} = dir + "/${name}"; };
+    in
+    builtins.foldl' (acc: name: acc // mapEntry name files.${name}) { } (builtins.attrNames files);
 }

@@ -1,13 +1,13 @@
 # This module contains all packages without much/any configuration.
 { pkgs, ... }:
 {
-  imports = [
-    ./firefox.nix
-    ./ghostty.nix
-  ];
-
   home = {
     packages = with pkgs; [
+      bitwarden-desktop
+      celluloid
+      # libreoffice-fresh
+      pinta
+
       # SPELLING
       aspell
       aspellDicts.en

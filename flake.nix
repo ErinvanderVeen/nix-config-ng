@@ -40,18 +40,6 @@
         "x86_64-linux"
       ];
 
-      createProfiles =
-        dir:
-        builtins.listToAttrs (
-          map (a: {
-            name = nixpkgs.lib.strings.removeSuffix ".nix" a;
-            value = dir + "/${a}";
-          }) (builtins.attrNames (builtins.readDir dir))
-        );
-
-      profiles = createProfiles ./profiles;
-      user-profiles = createProfiles ./user-profiles;
-
       overlays = import ./overlays {
         inherit inputs;
       };
@@ -59,31 +47,30 @@
       # Custom library that I use to create users and nixosSystems
       tyriaLib = import ./lib { inherit inputs overlays outputs; };
 
+      profiles = tyriaLib.createProfiles ./profiles;
+      user-profiles = tyriaLib.createProfiles ./user-profiles;
+
       users = {
         erin = tyriaLib.mkUser {
           userName = "erin";
           profiles = with user-profiles; [
-            common
-            dconf
-            desktop-packages
-            gnome
-            discord
-            github
-            lutris
+            cli
+            core
+            desktop
           ];
         };
 
         nixos = tyriaLib.mkUser {
           userName = "nixos";
           profiles = with user-profiles; [
-            common
+            core
           ];
         };
 
         media = tyriaLib.mkUser {
           userName = "media";
           profiles = with user-profiles; [
-            common
+            core
           ];
         };
       };
@@ -137,14 +124,9 @@
             media
           ];
           profiles = with profiles; [
-            common
-            corectrl
-            # home-assistant
-            immich
-            jellyfin
-            media-group
-            samba
-            transmission
+            core
+            mullvad
+            server
             update
           ];
         };
@@ -162,12 +144,11 @@
             erin
           ];
           profiles = with profiles; [
-            common
+            core
             gnome
-            # ollama
+            mullvad
             steam
             update
-            mullvad
           ];
         };
       };
@@ -176,11 +157,10 @@
         erin-development = tyriaLib.mkHomeManager { system = "x86_64-linux"; } {
           userName = "erin";
           profiles = with user-profiles; [
-            common
-            dconf
-            development-desktop-packages
-            github
-            gnome
+            core
+            cli
+            desktop.core
+            desktop.gnome
             nixgl
           ];
         };

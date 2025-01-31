@@ -3,16 +3,6 @@
   ...
 }:
 {
-  imports = [
-    ./cachix.nix
-    ./direnv.nix
-    ./nix.nix
-    ./sound.nix
-    ./shell.nix
-    ./networking.nix
-    ./locale.nix
-  ];
-
   hardware.keyboard.zsa.enable = true;
 
   environment = {
