@@ -5,6 +5,8 @@
 {
   hardware.keyboard.zsa.enable = true;
 
+  documentation.doc.enable = false;
+
   environment = {
     variables = {
       # Set a decent default editor
