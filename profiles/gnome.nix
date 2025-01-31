@@ -17,5 +17,6 @@
     gnome-console
     gnome-tour
     gnome-characters
+    yelp
   ];
 }
