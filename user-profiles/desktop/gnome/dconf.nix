@@ -14,8 +14,6 @@ with lib.hm.gvariant;
       picture-options = "zoom";
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/amber-l.jxl";
       picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/amber-d.jxl";
-      primary-color = "#ff7800";
-      secondary-color = "#000000";
     };
 
     "org/gnome/desktop/calendar" = {
@@ -45,7 +43,6 @@ with lib.hm.gvariant;
       clock-show-date = false;
       clock-show-seconds = false;
       clock-show-weekday = false;
-      color-scheme = "default";
       cursor-size = 32;
       enable-animations = true;
       font-antialiasing = "grayscale";
