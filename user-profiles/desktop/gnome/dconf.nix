@@ -5,31 +5,6 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
 
-    "org/gnome/Weather" = {
-      locations = [
-        (mkVariant [
-          (mkUint32 2)
-          (mkVariant [
-            "Stockholm"
-            "ESSB"
-            true
-            [
-              (mkTuple [
-                1.0358529110586345
-                0.31328660073298215
-              ])
-            ]
-            [
-              (mkTuple [
-                1.0355620170322046
-                0.3150319299849765
-              ])
-            ]
-          ])
-        ])
-      ];
-    };
-
     "org/gnome/calendar" = {
       active-view = "week";
     };
@@ -169,32 +144,6 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/app-switcher" = {
       current-workspace-only = false;
-    };
-
-    "org/gnome/shell/weather" = {
-      automatic-location = true;
-      locations = [
-        (mkVariant [
-          (mkUint32 2)
-          (mkVariant [
-            "Stockholm"
-            "ESSB"
-            true
-            [
-              (mkTuple [
-                1.0358529110586345
-                0.31328660073298215
-              ])
-            ]
-            [
-              (mkTuple [
-                1.0355620170322046
-                0.3150319299849765
-              ])
-            ]
-          ])
-        ])
-      ];
     };
   };
 }
