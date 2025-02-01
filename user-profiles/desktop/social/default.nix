@@ -4,7 +4,6 @@
     packages = with pkgs; [
       vesktop # Custom client with support for screen sharing on Linux
       signal-desktop
-      transmission_4-gtk
     ];
   };
 }
