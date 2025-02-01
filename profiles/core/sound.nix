@@ -6,8 +6,8 @@
     alsa.enable = true;
     pulse.enable = true;
   };
+  services.pulseaudio.enable = false;
   hardware = {
-    pulseaudio.enable = false;
     enableRedistributableFirmware = true;
   };
 }
