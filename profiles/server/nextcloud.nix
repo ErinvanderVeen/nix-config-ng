@@ -9,6 +9,7 @@
     hostName = "Mordremoth.local";
     database.createLocally = true;
     config = {
+      dbtype = "pgsql";
       adminpassFile = "/etc/nextcloud-pass-file";
     };
     package = pkgs.nextcloud30;
