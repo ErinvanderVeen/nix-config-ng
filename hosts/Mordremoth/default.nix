@@ -24,7 +24,7 @@
   };
   services.immich.mediaLocation = "/var/nas-data/immich";
   services.minecraft-server.dataDir = "/var/nas-data/minecraft";
-  # services.nextcloud.home = "/var/nas-data/nextcloud";
+  services.nextcloud.home = "/var/nas-data/nextcloud";
   services.samba.settings = {
     media = {
       path = "/var/nas-data/media/";
