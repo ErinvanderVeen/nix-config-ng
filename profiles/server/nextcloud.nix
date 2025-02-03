@@ -19,8 +19,6 @@
         contacts
         calendar
         tasks
-        maps
-        music
         notes
         ;
     };
