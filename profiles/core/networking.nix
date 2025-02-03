@@ -3,10 +3,7 @@
     networkmanager = {
       enable = true;
       insertNameservers = [
-        "1.1.1.1"
-        "1.0.0.1"
-        "8.8.8.8"
-        "8.8.4.4"
+        "194.242.2.2" # Mullvad DNS
       ];
     };
     # network manager requires useDHCP to be false
